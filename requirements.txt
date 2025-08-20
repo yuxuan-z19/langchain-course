@@ -33,6 +33,10 @@ docx2txt>=0.8
 chromadb>=0.4.0
 faiss-cpu>=1.7.0
 
+# 可选依赖 - Redis记忆存储
+redis>=5.0.0
+hiredis>=2.2.0  # Redis的高性能解析器
+
 # 可选依赖 - 其他工具
 requests>=2.31.0
 pyyaml>=6.0.0
