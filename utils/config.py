@@ -180,6 +180,22 @@ def setup_environment_variables():
     logger.info("Environment variables set successfully")
 
 
+def load_deepseek_config() -> Dict[str, str]:
+    """加载DeepSeek API配置
+    
+    Returns:
+        Dict[str, str]: 包含api_key和base_url的配置字典
+        
+    Raises:
+        ValueError: 当DeepSeek API密钥缺失时
+    """
+    config = load_environment()
+    return {
+        'api_key': config.deepseek_api_key,
+        'base_url': config.deepseek_base_url
+    }
+
+
 if __name__ == "__main__":
     # 测试配置加载
     try:
