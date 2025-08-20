@@ -17,7 +17,8 @@ logger = logging.getLogger(__name__)
 @dataclass
 class EnvironmentConfig:
     """环境配置数据模型"""
-    openai_api_key: str
+    deepseek_api_key: str
+    deepseek_base_url: str = "https://api.deepseek.com"
     langchain_api_key: Optional[str] = None
     langchain_tracing: bool = False
     langchain_project: str = "langchain-tutorial"
@@ -64,7 +65,7 @@ def load_environment() -> EnvironmentConfig:
     
     # 必需的环境变量
     required_vars = [
-        'OPENAI_API_KEY'
+        'DEEPSEEK_API_KEY'
     ]
     
     # 检查必需的环境变量
@@ -81,7 +82,8 @@ def load_environment() -> EnvironmentConfig:
     
     # 创建配置对象
     config = EnvironmentConfig(
-        openai_api_key=os.getenv('OPENAI_API_KEY'),
+        deepseek_api_key=os.getenv('DEEPSEEK_API_KEY'),
+        deepseek_base_url=os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com'),
         langchain_api_key=os.getenv('LANGCHAIN_API_KEY'),
         langchain_tracing=os.getenv('LANGCHAIN_TRACING_V2', 'false').lower() == 'true',
         langchain_project=os.getenv('LANGCHAIN_PROJECT', 'langchain-tutorial'),
@@ -119,7 +121,8 @@ def get_config_dict() -> Dict[str, Any]:
     """
     config = load_environment()
     return {
-        'openai_api_key': config.openai_api_key,
+        'deepseek_api_key': config.deepseek_api_key,
+        'deepseek_base_url': config.deepseek_base_url,
         'langchain_api_key': config.langchain_api_key,
         'langchain_tracing': config.langchain_tracing,
         'langchain_project': config.langchain_project,
@@ -137,11 +140,11 @@ def validate_api_keys() -> Dict[str, bool]:
     config = load_environment()
     validation_results = {}
     
-    # 验证OpenAI API密钥
-    if config.openai_api_key:
-        validation_results['openai'] = config.openai_api_key.startswith('sk-')
+    # 验证DeepSeek API密钥
+    if config.deepseek_api_key:
+        validation_results['deepseek'] = len(config.deepseek_api_key) > 10
     else:
-        validation_results['openai'] = False
+        validation_results['deepseek'] = False
     
     # 验证LangChain API密钥
     if config.langchain_api_key:
@@ -161,8 +164,9 @@ def setup_environment_variables():
     """设置环境变量到系统环境中"""
     config = load_environment()
     
-    # 设置OpenAI API密钥
-    os.environ['OPENAI_API_KEY'] = config.openai_api_key
+    # 设置DeepSeek API密钥
+    os.environ['DEEPSEEK_API_KEY'] = config.deepseek_api_key
+    os.environ['DEEPSEEK_BASE_URL'] = config.deepseek_base_url
     
     # 设置LangChain相关环境变量
     if config.langchain_api_key:
