@@ -1,0 +1,65 @@
+{#
+多语言提示词模板
+支持中文、英文、日文等多种语言
+
+变量:
+- language: 目标语言 ('zh', 'en', 'ja')
+- task_type: 任务类型
+- content: 要处理的内容
+- style: 输出风格 ('formal', 'casual', 'technical')
+#}
+
+{% set lang_config = {
+    'zh': {
+        'greeting': '您好',
+        'task_intro': '我将为您完成以下任务',
+        'content_label': '内容',
+        'style_label': '风格',
+        'result_label': '结果',
+        'formal': '正式',
+        'casual': '随意',
+        'technical': '技术性'
+    },
+    'en': {
+        'greeting': 'Hello',
+        'task_intro': 'I will complete the following task for you',
+        'content_label': 'Content',
+        'style_label': 'Style',
+        'result_label': 'Result',
+        'formal': 'formal',
+        'casual': 'casual',
+        'technical': 'technical'
+    },
+    'ja': {
+        'greeting': 'こんにちは',
+        'task_intro': '以下のタスクを完了いたします',
+        'content_label': 'コンテンツ',
+        'style_label': 'スタイル',
+        'result_label': '結果',
+        'formal': 'フォーマル',
+        'casual': 'カジュアル',
+        'technical': 'テクニカル'
+    }
+} %}
+
+{% set current_lang = lang_config[language] %}
+
+{{ current_lang.greeting }}！
+
+{{ current_lang.task_intro }}：{{ task_type }}
+
+**{{ current_lang.content_label }}**: {{ content }}
+
+**{{ current_lang.style_label }}**: {{ current_lang[style] | default(style) }}
+
+{% if language == 'zh' %}
+请按照{{ current_lang[style] }}风格处理上述内容，确保输出质量高且符合中文表达习惯。
+{% elif language == 'en' %}
+Please process the above content in a {{ style }} style, ensuring high-quality output that follows English conventions.
+{% elif language == 'ja' %}
+上記の内容を{{ current_lang[style] }}スタイルで処理し、日本語の表現習慣に従った高品質な出力を確保してください。
+{% endif %}
+
+---
+
+**{{ current_lang.result_label }}**:

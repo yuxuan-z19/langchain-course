@@ -1,0 +1,58 @@
+{
+  "sentiment_analysis": [
+    {
+      "input": "这个产品真的很棒，我非常喜欢！",
+      "output": "正面"
+    },
+    {
+      "input": "质量太差了，完全不值这个价格。",
+      "output": "负面"
+    },
+    {
+      "input": "产品还可以，没有特别突出的地方。",
+      "output": "中性"
+    }
+  ],
+  "text_classification": [
+    {
+      "input": "明天的会议推迟到下周三举行。",
+      "output": "通知"
+    },
+    {
+      "input": "请帮我查一下订单状态。",
+      "output": "询问"
+    },
+    {
+      "input": "感谢您的快速回复和帮助。",
+      "output": "感谢"
+    }
+  ],
+  "language_translation": [
+    {
+      "input": "Hello, how are you?",
+      "output": "你好，你好吗？"
+    },
+    {
+      "input": "Thank you very much.",
+      "output": "非常感谢。"
+    },
+    {
+      "input": "Good morning!",
+      "output": "早上好！"
+    }
+  ],
+  "code_explanation": [
+    {
+      "input": "def add(a, b): return a + b",
+      "output": "这是一个简单的加法函数，接受两个参数a和b，返回它们的和。"
+    },
+    {
+      "input": "for i in range(10): print(i)",
+      "output": "这是一个for循环，遍历0到9的数字并打印每个数字。"
+    },
+    {
+      "input": "if x > 0: print('positive')",
+      "output": "这是一个条件语句，如果变量x大于0，就打印'positive'。"
+    }
+  ]
+}
