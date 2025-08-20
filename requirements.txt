@@ -1,0 +1,37 @@
+# LangChain教程项目依赖
+
+# 核心依赖
+langchain>=0.1.0
+langgraph>=0.0.40
+python-dotenv>=1.0.0
+openai>=1.0.0
+
+# 开发依赖
+jupyter>=1.0.0
+ipykernel>=6.0.0
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
+
+# 可选依赖 - Web界面
+streamlit>=1.28.0
+gradio>=4.0.0
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# 可选依赖 - 数据处理
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 可选依赖 - 文档处理
+pypdf2>=3.0.0
+docx2txt>=0.8
+
+# 可选依赖 - 向量数据库
+chromadb>=0.4.0
+faiss-cpu>=1.7.0
+
+# 可选依赖 - 其他工具
+requests>=2.31.0
+pyyaml>=6.0.0
+tqdm>=4.65.0

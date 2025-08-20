@@ -1,0 +1,5 @@
+.trae/
+.env
+.env.test
+
+langchain_env/
