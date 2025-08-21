@@ -26,9 +26,13 @@ pandas>=2.0.0
 numpy>=1.24.0
 
 # 可选依赖 - 文档处理
+pypdf>=3.0.0  # 第13小节PDF加载器演示
 pypdf2>=3.0.0
-pypdf>=3.0.0  # 现代PDF处理库，用于第13小节PDF加载器演示
-docx2txt>=0.8
+python-docx>=0.8.11
+unstructured>=0.10.0
+PyMuPDF>=1.23.0  # 第13小节多模态文档处理，PDF图片提取
+Pillow>=9.0.0  # 图片处理
+cos-python-sdk-v5>=1.9.0  # 第14小节腾讯云COS对象存储，用于多模态RAG图片上传
 
 # 可选依赖 - 向量数据库
 chromadb>=0.4.0

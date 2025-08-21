@@ -38,6 +38,13 @@ class EnvironmentConfig:
     chroma_persist_directory: Optional[str] = None
     pinecone_api_key: Optional[str] = None
     pinecone_environment: Optional[str] = None
+    
+    # 腾讯云COS配置
+    cos_secret_id: Optional[str] = None
+    cos_secret_key: Optional[str] = None
+    cos_region: Optional[str] = None
+    cos_bucket: Optional[str] = None
+    cos_domain: Optional[str] = None
 
 
 @dataclass
@@ -104,7 +111,14 @@ def load_environment() -> EnvironmentConfig:
         database_url=os.getenv('DATABASE_URL'),
         chroma_persist_directory=os.getenv('CHROMA_PERSIST_DIRECTORY'),
         pinecone_api_key=os.getenv('PINECONE_API_KEY'),
-        pinecone_environment=os.getenv('PINECONE_ENVIRONMENT')
+        pinecone_environment=os.getenv('PINECONE_ENVIRONMENT'),
+        
+        # 腾讯云COS配置
+        cos_secret_id=os.getenv('COS_SECRET_ID'),
+        cos_secret_key=os.getenv('COS_SECRET_KEY'),
+        cos_region=os.getenv('COS_REGION'),
+        cos_bucket=os.getenv('COS_BUCKET'),
+        cos_domain=os.getenv('COS_DOMAIN')
     )
     
     # 设置日志级别
@@ -216,6 +230,40 @@ def load_qwen_config() -> Dict[str, str]:
     return {
         'api_key': config.qwen_api_key,
         'base_url': config.qwen_base_url
+    }
+
+
+def load_cos_config() -> Dict[str, str]:
+    """加载腾讯云COS配置
+    
+    Returns:
+        Dict[str, str]: 包含COS配置的字典
+        
+    Raises:
+        ValueError: 当必需的COS配置缺失时
+    """
+    config = load_environment()
+    
+    # 检查必需的COS配置
+    required_cos_vars = ['cos_secret_id', 'cos_secret_key', 'cos_region', 'cos_bucket']
+    missing_vars = []
+    
+    for var in required_cos_vars:
+        if not getattr(config, var):
+            missing_vars.append(var.upper())
+    
+    if missing_vars:
+        raise ValueError(
+            f"Missing required COS environment variables: {', '.join(missing_vars)}\n"
+            f"Please add these variables to your .env file."
+        )
+    
+    return {
+        'secret_id': config.cos_secret_id,
+        'secret_key': config.cos_secret_key,
+        'region': config.cos_region,
+        'bucket': config.cos_bucket,
+        'domain': config.cos_domain
     }
 
 
