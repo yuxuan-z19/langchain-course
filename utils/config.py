@@ -30,6 +30,8 @@ class EnvironmentConfig:
     anthropic_api_key: Optional[str] = None
     google_api_key: Optional[str] = None
     huggingface_api_token: Optional[str] = None
+    qwen_api_key: Optional[str] = None
+    qwen_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     
     # 数据库配置
     database_url: Optional[str] = None
@@ -95,6 +97,8 @@ def load_environment() -> EnvironmentConfig:
         anthropic_api_key=os.getenv('ANTHROPIC_API_KEY'),
         google_api_key=os.getenv('GOOGLE_API_KEY'),
         huggingface_api_token=os.getenv('HUGGINGFACE_API_TOKEN'),
+        qwen_api_key=os.getenv('QWEN_API_KEY'),
+        qwen_base_url=os.getenv('QWEN_BASE_URL', 'https://dashscope.aliyuncs.com/compatible-mode/v1'),
         
         # 数据库配置
         database_url=os.getenv('DATABASE_URL'),
@@ -156,6 +160,7 @@ def validate_api_keys() -> Dict[str, bool]:
     validation_results['anthropic'] = bool(config.anthropic_api_key)
     validation_results['google'] = bool(config.google_api_key)
     validation_results['huggingface'] = bool(config.huggingface_api_token)
+    validation_results['qwen'] = bool(config.qwen_api_key)
     
     return validation_results
 
@@ -193,6 +198,24 @@ def load_deepseek_config() -> Dict[str, str]:
     return {
         'api_key': config.deepseek_api_key,
         'base_url': config.deepseek_base_url
+    }
+
+
+def load_qwen_config() -> Dict[str, str]:
+    """加载Qwen API配置
+    
+    Returns:
+        Dict[str, str]: 包含api_key和base_url的配置字典
+        
+    Raises:
+        ValueError: 当Qwen API密钥缺失时
+    """
+    config = load_environment()
+    if not config.qwen_api_key:
+        raise ValueError("QWEN_API_KEY is required but not found in environment variables")
+    return {
+        'api_key': config.qwen_api_key,
+        'base_url': config.qwen_base_url
     }
 
 

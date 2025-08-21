@@ -41,3 +41,4 @@ hiredis>=2.2.0  # Redis的高性能解析器
 requests>=2.31.0
 pyyaml>=6.0.0
 tqdm>=4.65.0
+pytz>=2023.3  # 时区处理库
