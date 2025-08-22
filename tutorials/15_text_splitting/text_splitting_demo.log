@@ -1,0 +1,804 @@
+2025-08-22 09:55:34,006 - WARNING - PDF文档不存在: docs/中华人民共和国民法典.pdf，使用示例文本
+2025-08-22 09:55:34,006 - INFO - 
+==================================================
+2025-08-22 09:55:34,006 - INFO - 开始对比不同切分方法
+2025-08-22 09:55:34,006 - INFO - ==================================================
+2025-08-22 09:55:34,006 - INFO - === 字符切分器演示 ===
+2025-08-22 09:55:34,006 - INFO - 切分结果: 1 个片段
+2025-08-22 09:55:34,006 - INFO - 片段 1 (长度: 3000): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:55:34,006 - INFO - === 递归字符切分器演示 ===
+2025-08-22 09:55:34,007 - INFO - 切分结果: 7 个片段
+2025-08-22 09:55:34,007 - INFO - 片段 1 (长度: 387): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:55:34,007 - INFO - 片段 2 (长度: 474): 自然语言处理（Natural Language Processing，NLP）是人工智能和语言学领域的分支学科。此领域探讨如何处理及运用自然语言；自然语言处理包括多个方面和步骤，基本有认知、理解、生成...
+2025-08-22 09:55:34,007 - INFO - 片段 3 (长度: 479): 深度学习是机器学习的一个分支，它基于人工神经网络的研究，特别是利用多层次的神经网络来进行学习和表示。深度学习的概念源于人工神经网络的研究，含多隐层的多层感知器就是一种深度学习结构。
+        
+...
+2025-08-22 09:55:34,007 - INFO - === Token切分器演示 ===
+2025-08-22 09:55:37,507 - INFO - 切分结果: 30 个片段
+2025-08-22 09:55:37,508 - INFO - 片段 1 (长度: 129): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:55:37,508 - INFO - 片段 2 (长度: 111): �理"为重点，到以"知识"为重点，再到以"学习"为重点的自然、清晰的脉络。显然，智能水平的提高是一个不断学习的过程。
+        
+        机器学习是人工智能的核心，是使计算机具有智能的根...
+2025-08-22 09:55:37,508 - INFO - 片段 3 (长度: 103): 本途径。机器学习的应用遍及人工智能的各个分支，如专家系统、自动推理、自然语言理解、模式识别、计算机视觉、智能机器人等领域。
+        
+        深度学习是机器学习的一个分支，它基于人工神...
+2025-08-22 09:55:37,508 - INFO - === Markdown标题切分器演示 ===
+2025-08-22 09:55:37,508 - INFO - 切分结果: 4 个片段
+2025-08-22 09:55:37,508 - INFO - 片段 1 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）'}
+2025-08-22 09:55:37,508 - INFO - 内容 (长度: 64): 人工智能的概念最早可以追溯到1950年，当时艾伦·图灵提出了著名的"图灵测试"。
+这个测试成为了判断机器是否具有智能的重要标准。...
+2025-08-22 09:55:37,508 - INFO - 片段 2 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）', 'Header 3': '符号主义时期'}
+2025-08-22 09:55:37,508 - INFO - 内容 (长度: 83): 在1960年代，研究者们主要关注符号推理和专家系统。
+这一时期的代表性工作包括：
+- ELIZA聊天机器人
+- MYCIN医疗诊断系统
+- DENDRAL化学分析系统...
+2025-08-22 09:55:37,508 - INFO - 片段 3 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '机器学习兴起'}
+2025-08-22 09:55:37,508 - INFO - 内容 (长度: 31): 1980年代开始，机器学习方法逐渐兴起，特别是神经网络的发展。...
+2025-08-22 09:55:37,509 - INFO - 片段 4 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '深度学习革命'}
+2025-08-22 09:55:37,509 - INFO - 内容 (长度: 140): 2010年代，深度学习技术取得了突破性进展：
+- 2012年：AlexNet在ImageNet竞赛中获胜
+- 2016年：AlphaGo击败世界围棋冠军
+- 2017年：Transformer架构提出...
+2025-08-22 09:55:37,509 - INFO - === Python代码切分器演示 ===
+2025-08-22 09:55:37,509 - INFO - 切分结果: 5 个片段
+2025-08-22 09:55:37,509 - INFO - 片段 1 (长度: 145):
+2025-08-22 09:55:37,509 - INFO - def calculate_fibonacci(n):
+    """计算斐波那契数列的第n项"""
+    if n <= 1:
+        return n
+    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)...
+2025-08-22 09:55:37,509 - INFO - 片段 2 (长度: 264):
+2025-08-22 09:55:37,509 - INFO - class DataProcessor:
+    """数据处理器类"""
+    
+    def __init__(self, data_source):
+        self.data_source = data_source
+        self.processed_data = []
+    
+    def load_data(self):
+        """加载数据"""...
+2025-08-22 09:55:37,509 - INFO - 片段 3 (长度: 276):
+2025-08-22 09:55:37,509 - INFO - raw_data = f.read()
+            return raw_data
+        except FileNotFoundError:
+            print(f"文件 {self.data_source} 不存在")
+            return None
+    
+    def process_data(self, raw_data):
+   ...
+2025-08-22 09:55:37,509 - INFO - 片段 4 (长度: 120):
+2025-08-22 09:55:37,510 - INFO - ')
+            self.processed_data = [line.strip() for line in lines if line.strip()]
+        return self.processed_data...
+2025-08-22 09:55:37,510 - INFO - 片段 5 (长度: 203):
+2025-08-22 09:55:37,510 - INFO - if __name__ == "__main__":
+    processor = DataProcessor("data.txt")
+    data = processor.load_data()
+    if data:
+        result = processor.process_data(data)
+        print(f"处理完成，共 {len(result)} 行数...
+2025-08-22 09:55:37,510 - INFO - === 语义切分器演示 ===
+2025-08-22 09:55:37,510 - WARNING - 语义切分器不可用，跳过演示
+2025-08-22 09:55:37,510 - INFO - 
+==================================================
+2025-08-22 09:55:37,510 - INFO - 切分方法对比结果
+2025-08-22 09:55:37,510 - INFO - ==================================================
+2025-08-22 09:55:37,510 - INFO - 方法           片段数      平均长度       最小长度       最大长度       标准差       
+2025-08-22 09:55:37,510 - INFO - -----------------------------------------------------------------
+2025-08-22 09:55:37,510 - INFO - 字符切分         1        3000.0     3000       3000       0.0       
+2025-08-22 09:55:37,510 - INFO - 递归切分         7        413.1      303        479        77.9      
+2025-08-22 09:55:37,510 - INFO - Token切分      30       112.8      64         130        14.2      
+2025-08-22 09:55:37,510 - INFO - Markdown切分   4        79.5       31         140        45.7      
+2025-08-22 09:55:37,510 - INFO - Python代码切分   5        201.6      120        276        69.4      
+2025-08-22 09:55:37,510 - INFO - 语义切分         错误: 无文档
+2025-08-22 09:55:37,510 - INFO - 
+长度分布详情:
+2025-08-22 09:55:37,510 - INFO - 
+字符切分:
+2025-08-22 09:55:37,510 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   1000+: 1 个片段 (100.0%)
+2025-08-22 09:55:37,511 - INFO - 
+递归切分:
+2025-08-22 09:55:37,511 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   301-500: 7 个片段 (100.0%)
+2025-08-22 09:55:37,511 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO - 
+Token切分:
+2025-08-22 09:55:37,511 - INFO -   0-100: 2 个片段 (6.7%)
+2025-08-22 09:55:37,511 - INFO -   101-300: 28 个片段 (93.3%)
+2025-08-22 09:55:37,511 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO - 
+Markdown切分:
+2025-08-22 09:55:37,511 - INFO -   0-100: 3 个片段 (75.0%)
+2025-08-22 09:55:37,511 - INFO -   101-300: 1 个片段 (25.0%)
+2025-08-22 09:55:37,511 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:55:37,511 - INFO - 
+Python代码切分:
+2025-08-22 09:55:37,511 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:55:37,512 - INFO -   101-300: 5 个片段 (100.0%)
+2025-08-22 09:55:37,512 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:55:37,512 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:55:37,512 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:55:37,512 - INFO - 
+总耗时: 3.51 秒
+2025-08-22 09:55:37,512 - ERROR - 保存结果失败: [Errno 2] No such file or directory: 'tutorials/15_text_splitting/splitting_results.json'
+2025-08-22 09:55:37,512 - INFO - 
+文档切分演示完成！
+2025-08-22 09:55:37,512 - INFO - 
+建议:
+2025-08-22 09:55:37,512 - INFO - 1. 根据文档类型选择合适的切分方法
+2025-08-22 09:55:37,512 - INFO - 2. 调整chunk_size和chunk_overlap参数以优化效果
+2025-08-22 09:55:37,512 - INFO - 3. 对于结构化文档，优先使用格式感知的切分器
+2025-08-22 09:55:37,512 - INFO - 4. 在质量要求高的场景中考虑使用语义切分
+2025-08-22 09:55:37,512 - INFO - 5. 通过A/B测试验证切分效果对RAG性能的影响
+2025-08-22 09:56:07,517 - WARNING - PDF文档不存在: docs/中华人民共和国民法典.pdf，使用示例文本
+2025-08-22 09:56:07,517 - INFO - 
+==================================================
+2025-08-22 09:56:07,517 - INFO - 开始对比不同切分方法
+2025-08-22 09:56:07,517 - INFO - ==================================================
+2025-08-22 09:56:07,517 - INFO - === 字符切分器演示 ===
+2025-08-22 09:56:07,517 - INFO - 切分结果: 1 个片段
+2025-08-22 09:56:07,517 - INFO - 片段 1 (长度: 3000): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:56:07,517 - INFO - === 递归字符切分器演示 ===
+2025-08-22 09:56:07,517 - INFO - 切分结果: 7 个片段
+2025-08-22 09:56:07,517 - INFO - 片段 1 (长度: 387): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:56:07,518 - INFO - 片段 2 (长度: 474): 自然语言处理（Natural Language Processing，NLP）是人工智能和语言学领域的分支学科。此领域探讨如何处理及运用自然语言；自然语言处理包括多个方面和步骤，基本有认知、理解、生成...
+2025-08-22 09:56:07,518 - INFO - 片段 3 (长度: 479): 深度学习是机器学习的一个分支，它基于人工神经网络的研究，特别是利用多层次的神经网络来进行学习和表示。深度学习的概念源于人工神经网络的研究，含多隐层的多层感知器就是一种深度学习结构。
+        
+...
+2025-08-22 09:56:07,518 - INFO - === Token切分器演示 ===
+2025-08-22 09:56:07,743 - INFO - 切分结果: 30 个片段
+2025-08-22 09:56:07,743 - INFO - 片段 1 (长度: 129): 人工智能（Artificial Intelligence，AI）是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器。
+        
+      ...
+2025-08-22 09:56:07,743 - INFO - 片段 2 (长度: 111): �理"为重点，到以"知识"为重点，再到以"学习"为重点的自然、清晰的脉络。显然，智能水平的提高是一个不断学习的过程。
+        
+        机器学习是人工智能的核心，是使计算机具有智能的根...
+2025-08-22 09:56:07,743 - INFO - 片段 3 (长度: 103): 本途径。机器学习的应用遍及人工智能的各个分支，如专家系统、自动推理、自然语言理解、模式识别、计算机视觉、智能机器人等领域。
+        
+        深度学习是机器学习的一个分支，它基于人工神...
+2025-08-22 09:56:07,743 - INFO - === Markdown标题切分器演示 ===
+2025-08-22 09:56:07,743 - INFO - 切分结果: 4 个片段
+2025-08-22 09:56:07,743 - INFO - 片段 1 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）'}
+2025-08-22 09:56:07,743 - INFO - 内容 (长度: 64): 人工智能的概念最早可以追溯到1950年，当时艾伦·图灵提出了著名的"图灵测试"。
+这个测试成为了判断机器是否具有智能的重要标准。...
+2025-08-22 09:56:07,743 - INFO - 片段 2 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）', 'Header 3': '符号主义时期'}
+2025-08-22 09:56:07,743 - INFO - 内容 (长度: 83): 在1960年代，研究者们主要关注符号推理和专家系统。
+这一时期的代表性工作包括：
+- ELIZA聊天机器人
+- MYCIN医疗诊断系统
+- DENDRAL化学分析系统...
+2025-08-22 09:56:07,743 - INFO - 片段 3 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '机器学习兴起'}
+2025-08-22 09:56:07,743 - INFO - 内容 (长度: 31): 1980年代开始，机器学习方法逐渐兴起，特别是神经网络的发展。...
+2025-08-22 09:56:07,743 - INFO - 片段 4 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '深度学习革命'}
+2025-08-22 09:56:07,743 - INFO - 内容 (长度: 140): 2010年代，深度学习技术取得了突破性进展：
+- 2012年：AlexNet在ImageNet竞赛中获胜
+- 2016年：AlphaGo击败世界围棋冠军
+- 2017年：Transformer架构提出...
+2025-08-22 09:56:07,743 - INFO - === Python代码切分器演示 ===
+2025-08-22 09:56:07,743 - INFO - 切分结果: 5 个片段
+2025-08-22 09:56:07,743 - INFO - 片段 1 (长度: 145):
+2025-08-22 09:56:07,743 - INFO - def calculate_fibonacci(n):
+    """计算斐波那契数列的第n项"""
+    if n <= 1:
+        return n
+    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)...
+2025-08-22 09:56:07,743 - INFO - 片段 2 (长度: 264):
+2025-08-22 09:56:07,744 - INFO - class DataProcessor:
+    """数据处理器类"""
+    
+    def __init__(self, data_source):
+        self.data_source = data_source
+        self.processed_data = []
+    
+    def load_data(self):
+        """加载数据"""...
+2025-08-22 09:56:07,744 - INFO - 片段 3 (长度: 276):
+2025-08-22 09:56:07,744 - INFO - raw_data = f.read()
+            return raw_data
+        except FileNotFoundError:
+            print(f"文件 {self.data_source} 不存在")
+            return None
+    
+    def process_data(self, raw_data):
+   ...
+2025-08-22 09:56:07,744 - INFO - 片段 4 (长度: 120):
+2025-08-22 09:56:07,744 - INFO - ')
+            self.processed_data = [line.strip() for line in lines if line.strip()]
+        return self.processed_data...
+2025-08-22 09:56:07,744 - INFO - 片段 5 (长度: 203):
+2025-08-22 09:56:07,744 - INFO - if __name__ == "__main__":
+    processor = DataProcessor("data.txt")
+    data = processor.load_data()
+    if data:
+        result = processor.process_data(data)
+        print(f"处理完成，共 {len(result)} 行数...
+2025-08-22 09:56:07,744 - INFO - === 语义切分器演示 ===
+2025-08-22 09:56:07,744 - WARNING - 语义切分器不可用，跳过演示
+2025-08-22 09:56:07,744 - INFO - 
+==================================================
+2025-08-22 09:56:07,744 - INFO - 切分方法对比结果
+2025-08-22 09:56:07,744 - INFO - ==================================================
+2025-08-22 09:56:07,744 - INFO - 方法           片段数      平均长度       最小长度       最大长度       标准差       
+2025-08-22 09:56:07,744 - INFO - -----------------------------------------------------------------
+2025-08-22 09:56:07,744 - INFO - 字符切分         1        3000.0     3000       3000       0.0       
+2025-08-22 09:56:07,744 - INFO - 递归切分         7        413.1      303        479        77.9      
+2025-08-22 09:56:07,744 - INFO - Token切分      30       112.8      64         130        14.2      
+2025-08-22 09:56:07,744 - INFO - Markdown切分   4        79.5       31         140        45.7      
+2025-08-22 09:56:07,744 - INFO - Python代码切分   5        201.6      120        276        69.4      
+2025-08-22 09:56:07,744 - INFO - 语义切分         错误: 无文档
+2025-08-22 09:56:07,744 - INFO - 
+长度分布详情:
+2025-08-22 09:56:07,744 - INFO - 
+字符切分:
+2025-08-22 09:56:07,744 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   1000+: 1 个片段 (100.0%)
+2025-08-22 09:56:07,744 - INFO - 
+递归切分:
+2025-08-22 09:56:07,744 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   301-500: 7 个片段 (100.0%)
+2025-08-22 09:56:07,744 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO - 
+Token切分:
+2025-08-22 09:56:07,744 - INFO -   0-100: 2 个片段 (6.7%)
+2025-08-22 09:56:07,744 - INFO -   101-300: 28 个片段 (93.3%)
+2025-08-22 09:56:07,744 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:56:07,744 - INFO - 
+Markdown切分:
+2025-08-22 09:56:07,744 - INFO -   0-100: 3 个片段 (75.0%)
+2025-08-22 09:56:07,744 - INFO -   101-300: 1 个片段 (25.0%)
+2025-08-22 09:56:07,745 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO - 
+Python代码切分:
+2025-08-22 09:56:07,745 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO -   101-300: 5 个片段 (100.0%)
+2025-08-22 09:56:07,745 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:56:07,745 - INFO - 
+总耗时: 0.23 秒
+2025-08-22 09:56:07,745 - INFO - 结果已保存到 splitting_results.json
+2025-08-22 09:56:07,745 - INFO - 
+文档切分演示完成！
+2025-08-22 09:56:07,745 - INFO - 
+建议:
+2025-08-22 09:56:07,745 - INFO - 1. 根据文档类型选择合适的切分方法
+2025-08-22 09:56:07,745 - INFO - 2. 调整chunk_size和chunk_overlap参数以优化效果
+2025-08-22 09:56:07,745 - INFO - 3. 对于结构化文档，优先使用格式感知的切分器
+2025-08-22 09:56:07,745 - INFO - 4. 在质量要求高的场景中考虑使用语义切分
+2025-08-22 09:56:07,745 - INFO - 5. 通过A/B测试验证切分效果对RAG性能的影响
+2025-08-22 09:59:05,523 - INFO - 使用PDF文档进行测试: /Users/eumenides/Desktop/jaguarliu/core/langchain-course/docs/中华人民共和国民法典.pdf
+2025-08-22 09:59:05,525 - ERROR - 加载文档失败: 'PosixPath' object has no attribute 'endswith'
+2025-08-22 09:59:05,525 - ERROR - 无法加载PDF文档，使用示例文本
+2025-08-22 09:59:05,525 - INFO - 
+==================================================
+2025-08-22 09:59:05,525 - INFO - 开始对比不同切分方法
+2025-08-22 09:59:05,525 - INFO - ==================================================
+2025-08-22 09:59:05,525 - INFO - === 字符切分器演示 ===
+2025-08-22 09:59:05,525 - INFO - 切分结果: 1 个片段
+2025-08-22 09:59:05,525 - INFO - 片段 1 (长度: 900): 这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这...
+2025-08-22 09:59:05,527 - INFO - === 递归字符切分器演示 ===
+2025-08-22 09:59:05,527 - INFO - 切分结果: 2 个片段
+2025-08-22 09:59:05,527 - INFO - 片段 1 (长度: 494): 这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这...
+2025-08-22 09:59:05,527 - INFO - 片段 2 (长度: 451): 。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。...
+2025-08-22 09:59:05,527 - INFO - === Token切分器演示 ===
+2025-08-22 09:59:05,758 - INFO - 切分结果: 9 个片段
+2025-08-22 09:59:05,758 - INFO - 片段 1 (长度: 113): 这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这...
+2025-08-22 09:59:05,758 - INFO - 片段 2 (长度: 112): 个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个...
+2025-08-22 09:59:05,758 - INFO - 片段 3 (长度: 112): 试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试文档。这是一个测试...
+2025-08-22 09:59:05,758 - INFO - === Markdown标题切分器演示 ===
+2025-08-22 09:59:05,759 - INFO - 切分结果: 4 个片段
+2025-08-22 09:59:05,759 - INFO - 片段 1 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）'}
+2025-08-22 09:59:05,759 - INFO - 内容 (长度: 64): 人工智能的概念最早可以追溯到1950年，当时艾伦·图灵提出了著名的"图灵测试"。
+这个测试成为了判断机器是否具有智能的重要标准。...
+2025-08-22 09:59:05,759 - INFO - 片段 2 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）', 'Header 3': '符号主义时期'}
+2025-08-22 09:59:05,759 - INFO - 内容 (长度: 83): 在1960年代，研究者们主要关注符号推理和专家系统。
+这一时期的代表性工作包括：
+- ELIZA聊天机器人
+- MYCIN医疗诊断系统
+- DENDRAL化学分析系统...
+2025-08-22 09:59:05,759 - INFO - 片段 3 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '机器学习兴起'}
+2025-08-22 09:59:05,759 - INFO - 内容 (长度: 31): 1980年代开始，机器学习方法逐渐兴起，特别是神经网络的发展。...
+2025-08-22 09:59:05,759 - INFO - 片段 4 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '深度学习革命'}
+2025-08-22 09:59:05,759 - INFO - 内容 (长度: 140): 2010年代，深度学习技术取得了突破性进展：
+- 2012年：AlexNet在ImageNet竞赛中获胜
+- 2016年：AlphaGo击败世界围棋冠军
+- 2017年：Transformer架构提出...
+2025-08-22 09:59:05,759 - INFO - === Python代码切分器演示 ===
+2025-08-22 09:59:05,759 - INFO - 切分结果: 5 个片段
+2025-08-22 09:59:05,759 - INFO - 片段 1 (长度: 145):
+2025-08-22 09:59:05,759 - INFO - def calculate_fibonacci(n):
+    """计算斐波那契数列的第n项"""
+    if n <= 1:
+        return n
+    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)...
+2025-08-22 09:59:05,759 - INFO - 片段 2 (长度: 264):
+2025-08-22 09:59:05,759 - INFO - class DataProcessor:
+    """数据处理器类"""
+    
+    def __init__(self, data_source):
+        self.data_source = data_source
+        self.processed_data = []
+    
+    def load_data(self):
+        """加载数据"""...
+2025-08-22 09:59:05,759 - INFO - 片段 3 (长度: 276):
+2025-08-22 09:59:05,759 - INFO - raw_data = f.read()
+            return raw_data
+        except FileNotFoundError:
+            print(f"文件 {self.data_source} 不存在")
+            return None
+    
+    def process_data(self, raw_data):
+   ...
+2025-08-22 09:59:05,759 - INFO - 片段 4 (长度: 120):
+2025-08-22 09:59:05,759 - INFO - ')
+            self.processed_data = [line.strip() for line in lines if line.strip()]
+        return self.processed_data...
+2025-08-22 09:59:05,759 - INFO - 片段 5 (长度: 203):
+2025-08-22 09:59:05,759 - INFO - if __name__ == "__main__":
+    processor = DataProcessor("data.txt")
+    data = processor.load_data()
+    if data:
+        result = processor.process_data(data)
+        print(f"处理完成，共 {len(result)} 行数...
+2025-08-22 09:59:05,759 - INFO - === 语义切分器演示 ===
+2025-08-22 09:59:05,759 - WARNING - 语义切分器不可用，跳过演示
+2025-08-22 09:59:05,759 - INFO - 
+==================================================
+2025-08-22 09:59:05,760 - INFO - 切分方法对比结果
+2025-08-22 09:59:05,760 - INFO - ==================================================
+2025-08-22 09:59:05,760 - INFO - 方法           片段数      平均长度       最小长度       最大长度       标准差       
+2025-08-22 09:59:05,760 - INFO - -----------------------------------------------------------------
+2025-08-22 09:59:05,760 - INFO - 字符切分         1        900.0      900        900        0.0       
+2025-08-22 09:59:05,760 - INFO - 递归切分         2        472.5      451        494        30.4      
+2025-08-22 09:59:05,760 - INFO - Token切分      9        110.0      90         113        7.5       
+2025-08-22 09:59:05,760 - INFO - Markdown切分   4        79.5       31         140        45.7      
+2025-08-22 09:59:05,760 - INFO - Python代码切分   5        201.6      120        276        69.4      
+2025-08-22 09:59:05,760 - INFO - 语义切分         错误: 无文档
+2025-08-22 09:59:05,760 - INFO - 
+长度分布详情:
+2025-08-22 09:59:05,760 - INFO - 
+字符切分:
+2025-08-22 09:59:05,760 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   501-1000: 1 个片段 (100.0%)
+2025-08-22 09:59:05,760 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO - 
+递归切分:
+2025-08-22 09:59:05,760 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   301-500: 2 个片段 (100.0%)
+2025-08-22 09:59:05,760 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO - 
+Token切分:
+2025-08-22 09:59:05,760 - INFO -   0-100: 1 个片段 (11.1%)
+2025-08-22 09:59:05,760 - INFO -   101-300: 8 个片段 (88.9%)
+2025-08-22 09:59:05,760 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO - 
+Markdown切分:
+2025-08-22 09:59:05,760 - INFO -   0-100: 3 个片段 (75.0%)
+2025-08-22 09:59:05,760 - INFO -   101-300: 1 个片段 (25.0%)
+2025-08-22 09:59:05,760 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO - 
+Python代码切分:
+2025-08-22 09:59:05,760 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   101-300: 5 个片段 (100.0%)
+2025-08-22 09:59:05,760 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:05,760 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:05,761 - INFO - 
+总耗时: 0.24 秒
+2025-08-22 09:59:05,761 - INFO - 结果已保存到 splitting_results.json
+2025-08-22 09:59:05,761 - INFO - 
+文档切分演示完成！
+2025-08-22 09:59:05,761 - INFO - 
+建议:
+2025-08-22 09:59:05,761 - INFO - 1. 根据文档类型选择合适的切分方法
+2025-08-22 09:59:05,761 - INFO - 2. 调整chunk_size和chunk_overlap参数以优化效果
+2025-08-22 09:59:05,761 - INFO - 3. 对于结构化文档，优先使用格式感知的切分器
+2025-08-22 09:59:05,761 - INFO - 4. 在质量要求高的场景中考虑使用语义切分
+2025-08-22 09:59:05,761 - INFO - 5. 通过A/B测试验证切分效果对RAG性能的影响
+2025-08-22 09:59:30,864 - INFO - 使用PDF文档进行测试: /Users/eumenides/Desktop/jaguarliu/core/langchain-course/docs/中华人民共和国民法典.pdf
+2025-08-22 09:59:35,101 - INFO - 成功加载PDF文档，总长度: 122348 字符
+2025-08-22 09:59:35,101 - INFO - 
+==================================================
+2025-08-22 09:59:35,101 - INFO - 开始对比不同切分方法
+2025-08-22 09:59:35,101 - INFO - ==================================================
+2025-08-22 09:59:35,101 - INFO - === 字符切分器演示 ===
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 543, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 516, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 530, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 534, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 572, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 507, which is longer than the specified 500
+2025-08-22 09:59:35,101 - WARNING - Created a chunk of size 587, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 505, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 583, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 558, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 583, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 539, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 503, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 526, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 510, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 552, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 551, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 536, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 542, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 557, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 552, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 537, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 534, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 524, which is longer than the specified 500
+2025-08-22 09:59:35,102 - WARNING - Created a chunk of size 587, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 520, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 523, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 515, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 540, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 538, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 566, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 521, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 518, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 552, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 527, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 539, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 595, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 537, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 568, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 534, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 540, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 544, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 540, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 526, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 525, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 502, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 597, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 554, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 597, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 553, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 605, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 536, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 551, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 538, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 512, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 538, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 533, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 542, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 555, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 502, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 556, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 555, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 546, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 581, which is longer than the specified 500
+2025-08-22 09:59:35,103 - WARNING - Created a chunk of size 590, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 576, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 539, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 535, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 516, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 506, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 533, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 507, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 545, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 531, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 562, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 565, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 541, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 582, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 579, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 555, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 625, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 638, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 609, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 531, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 570, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 543, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 542, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 529, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 540, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 532, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 529, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 535, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 565, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 594, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 515, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 580, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 552, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 508, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 542, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 587, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 613, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 522, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 546, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 549, which is longer than the specified 500
+2025-08-22 09:59:35,104 - WARNING - Created a chunk of size 525, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 617, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 504, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 553, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 543, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 541, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 611, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 506, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 628, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 505, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 573, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 545, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 603, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 529, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 582, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 532, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 553, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 523, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 550, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 611, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 526, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 562, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 525, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 556, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 559, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 511, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 514, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 516, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 550, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 531, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 526, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 592, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 564, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 569, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 513, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 522, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 543, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 508, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 553, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 530, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 508, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 556, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 519, which is longer than the specified 500
+2025-08-22 09:59:35,105 - WARNING - Created a chunk of size 512, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 581, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 543, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 504, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 528, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 515, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 527, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 562, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 520, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 507, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 528, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 520, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 523, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 549, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 577, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 567, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 532, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 582, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 505, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 588, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 610, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 552, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 586, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 536, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 630, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 593, which is longer than the specified 500
+2025-08-22 09:59:35,106 - WARNING - Created a chunk of size 561, which is longer than the specified 500
+2025-08-22 09:59:35,107 - INFO - 切分结果: 231 个片段
+2025-08-22 09:59:35,107 - INFO - 片段 1 (长度: 379): 1
+中华人民共和国民法典
+发文单位：全国人民代表大会常务委员会
+文    号：中华人民共和国主席令第四十五号
+效力范围：全文有效
+发文日期：2020-05-28
+生效日期：2021-01-01
+　　《...
+2025-08-22 09:59:35,107 - INFO - 片段 2 (长度: 418): 2
+　　第一编  总    则
+　　第一章  基本规定
+　　第二章  自 然 人
+　　       第一节  民事权利能力和民事行为能力
+　　       第二节  监  护
+　　       第三节...
+2025-08-22 09:59:35,107 - INFO - 片段 3 (长度: 455): 3
+　　        第三节  代理终止
+　　第八章  民事责任
+　　第九章  诉讼时效
+　　第十章  期间计算
+　　第二编  物  权
+　　    第一分编  通  则
+　　        第一章...
+2025-08-22 09:59:35,107 - INFO - === 递归字符切分器演示 ===
+2025-08-22 09:59:35,112 - INFO - 切分结果: 411 个片段
+2025-08-22 09:59:35,112 - INFO - 片段 1 (长度: 379): 1
+中华人民共和国民法典
+发文单位：全国人民代表大会常务委员会
+文    号：中华人民共和国主席令第四十五号
+效力范围：全文有效
+发文日期：2020-05-28
+生效日期：2021-01-01
+　　《...
+2025-08-22 09:59:35,112 - INFO - 片段 2 (长度: 418): 2
+　　第一编  总    则
+　　第一章  基本规定
+　　第二章  自 然 人
+　　       第一节  民事权利能力和民事行为能力
+　　       第二节  监  护
+　　       第三节...
+2025-08-22 09:59:35,112 - INFO - 片段 3 (长度: 455): 3
+　　        第三节  代理终止
+　　第八章  民事责任
+　　第九章  诉讼时效
+　　第十章  期间计算
+　　第二编  物  权
+　　    第一分编  通  则
+　　        第一章...
+2025-08-22 09:59:35,113 - INFO - === Token切分器演示 ===
+2025-08-22 09:59:35,374 - INFO - 切分结果: 1345 个片段
+2025-08-22 09:59:35,375 - INFO - 片段 1 (长度: 121): 1
+中华人民共和国民法典
+发文单位：全国人民代表大会常务委员会
+文    号：中华人民共和国主席令第四十五号
+效力范围：全文有效
+发文日期：2020-05-28
+生效日期：2021-01-01
+　　《...
+2025-08-22 09:59:35,375 - INFO - 片段 2 (长度: 164): 已由中华人民共和国第十三届全国人
+民代表大会第三次会议于 2020 年 5 月 28 日通过，现予公布，自 2021
+年 1 月 1 日起施行。
+　　                         ...
+2025-08-22 09:59:35,375 - INFO - 片段 3 (长度: 150):                                      
+中华人民共和国主席  习近平
+　　2020 年 5 月 28 日
+中华人民共和国民法典
+(2020 年5 月 28 日第十三...
+2025-08-22 09:59:35,376 - INFO - === Markdown标题切分器演示 ===
+2025-08-22 09:59:35,376 - INFO - 切分结果: 4 个片段
+2025-08-22 09:59:35,376 - INFO - 片段 1 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）'}
+2025-08-22 09:59:35,376 - INFO - 内容 (长度: 64): 人工智能的概念最早可以追溯到1950年，当时艾伦·图灵提出了著名的"图灵测试"。
+这个测试成为了判断机器是否具有智能的重要标准。...
+2025-08-22 09:59:35,376 - INFO - 片段 2 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '早期发展（1950-1980）', 'Header 3': '符号主义时期'}
+2025-08-22 09:59:35,376 - INFO - 内容 (长度: 83): 在1960年代，研究者们主要关注符号推理和专家系统。
+这一时期的代表性工作包括：
+- ELIZA聊天机器人
+- MYCIN医疗诊断系统
+- DENDRAL化学分析系统...
+2025-08-22 09:59:35,376 - INFO - 片段 3 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '机器学习兴起'}
+2025-08-22 09:59:35,376 - INFO - 内容 (长度: 31): 1980年代开始，机器学习方法逐渐兴起，特别是神经网络的发展。...
+2025-08-22 09:59:35,376 - INFO - 片段 4 - 元数据: {'Header 1': '人工智能发展史', 'Header 2': '现代发展（1980-至今）', 'Header 3': '深度学习革命'}
+2025-08-22 09:59:35,376 - INFO - 内容 (长度: 140): 2010年代，深度学习技术取得了突破性进展：
+- 2012年：AlexNet在ImageNet竞赛中获胜
+- 2016年：AlphaGo击败世界围棋冠军
+- 2017年：Transformer架构提出...
+2025-08-22 09:59:35,377 - INFO - === Python代码切分器演示 ===
+2025-08-22 09:59:35,377 - INFO - 切分结果: 5 个片段
+2025-08-22 09:59:35,377 - INFO - 片段 1 (长度: 145):
+2025-08-22 09:59:35,377 - INFO - def calculate_fibonacci(n):
+    """计算斐波那契数列的第n项"""
+    if n <= 1:
+        return n
+    return calculate_fibonacci(n-1) + calculate_fibonacci(n-2)...
+2025-08-22 09:59:35,377 - INFO - 片段 2 (长度: 264):
+2025-08-22 09:59:35,377 - INFO - class DataProcessor:
+    """数据处理器类"""
+    
+    def __init__(self, data_source):
+        self.data_source = data_source
+        self.processed_data = []
+    
+    def load_data(self):
+        """加载数据"""...
+2025-08-22 09:59:35,377 - INFO - 片段 3 (长度: 276):
+2025-08-22 09:59:35,377 - INFO - raw_data = f.read()
+            return raw_data
+        except FileNotFoundError:
+            print(f"文件 {self.data_source} 不存在")
+            return None
+    
+    def process_data(self, raw_data):
+   ...
+2025-08-22 09:59:35,377 - INFO - 片段 4 (长度: 120):
+2025-08-22 09:59:35,377 - INFO - ')
+            self.processed_data = [line.strip() for line in lines if line.strip()]
+        return self.processed_data...
+2025-08-22 09:59:35,377 - INFO - 片段 5 (长度: 203):
+2025-08-22 09:59:35,377 - INFO - if __name__ == "__main__":
+    processor = DataProcessor("data.txt")
+    data = processor.load_data()
+    if data:
+        result = processor.process_data(data)
+        print(f"处理完成，共 {len(result)} 行数...
+2025-08-22 09:59:35,377 - INFO - === 语义切分器演示 ===
+2025-08-22 09:59:35,377 - WARNING - 语义切分器不可用，跳过演示
+2025-08-22 09:59:35,377 - INFO - 
+==================================================
+2025-08-22 09:59:35,377 - INFO - 切分方法对比结果
+2025-08-22 09:59:35,377 - INFO - ==================================================
+2025-08-22 09:59:35,377 - INFO - 方法           片段数      平均长度       最小长度       最大长度       标准差       
+2025-08-22 09:59:35,378 - INFO - -----------------------------------------------------------------
+2025-08-22 09:59:35,378 - INFO - 字符切分         231      527.7      340        638        46.4      
+2025-08-22 09:59:35,378 - INFO - 递归切分         411      311.7      39         498        192.2     
+2025-08-22 09:59:35,378 - INFO - Token切分      1345     101.6      24         164        6.8       
+2025-08-22 09:59:35,378 - INFO - Markdown切分   4        79.5       31         140        45.7      
+2025-08-22 09:59:35,378 - INFO - Python代码切分   5        201.6      120        276        69.4      
+2025-08-22 09:59:35,378 - INFO - 语义切分         错误: 无文档
+2025-08-22 09:59:35,378 - INFO - 
+长度分布详情:
+2025-08-22 09:59:35,378 - INFO - 
+字符切分:
+2025-08-22 09:59:35,378 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO -   101-300: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO -   301-500: 57 个片段 (24.7%)
+2025-08-22 09:59:35,378 - INFO -   501-1000: 174 个片段 (75.3%)
+2025-08-22 09:59:35,378 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO - 
+递归切分:
+2025-08-22 09:59:35,378 - INFO -   0-100: 110 个片段 (26.8%)
+2025-08-22 09:59:35,378 - INFO -   101-300: 70 个片段 (17.0%)
+2025-08-22 09:59:35,378 - INFO -   301-500: 231 个片段 (56.2%)
+2025-08-22 09:59:35,378 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO - 
+Token切分:
+2025-08-22 09:59:35,378 - INFO -   0-100: 625 个片段 (46.5%)
+2025-08-22 09:59:35,378 - INFO -   101-300: 720 个片段 (53.5%)
+2025-08-22 09:59:35,378 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:35,378 - INFO - 
+Markdown切分:
+2025-08-22 09:59:35,378 - INFO -   0-100: 3 个片段 (75.0%)
+2025-08-22 09:59:35,378 - INFO -   101-300: 1 个片段 (25.0%)
+2025-08-22 09:59:35,378 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO - 
+Python代码切分:
+2025-08-22 09:59:35,379 - INFO -   0-100: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO -   101-300: 5 个片段 (100.0%)
+2025-08-22 09:59:35,379 - INFO -   301-500: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO -   501-1000: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO -   1000+: 0 个片段 (0.0%)
+2025-08-22 09:59:35,379 - INFO - 
+总耗时: 0.28 秒
+2025-08-22 09:59:35,379 - INFO - 结果已保存到 splitting_results.json
+2025-08-22 09:59:35,379 - INFO - 
+文档切分演示完成！
+2025-08-22 09:59:35,379 - INFO - 
+建议:
+2025-08-22 09:59:35,379 - INFO - 1. 根据文档类型选择合适的切分方法
+2025-08-22 09:59:35,379 - INFO - 2. 调整chunk_size和chunk_overlap参数以优化效果
+2025-08-22 09:59:35,379 - INFO - 3. 对于结构化文档，优先使用格式感知的切分器
+2025-08-22 09:59:35,379 - INFO - 4. 在质量要求高的场景中考虑使用语义切分
+2025-08-22 09:59:35,379 - INFO - 5. 通过A/B测试验证切分效果对RAG性能的影响
