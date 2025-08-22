@@ -45,6 +45,11 @@ class EnvironmentConfig:
     cos_region: Optional[str] = None
     cos_bucket: Optional[str] = None
     cos_domain: Optional[str] = None
+    
+    # 向量模型配置
+    embedding_api_key: Optional[str] = None
+    embedding_base_url: Optional[str] = None
+    embedding_model_name: Optional[str] = None
 
 
 @dataclass
@@ -118,7 +123,12 @@ def load_environment() -> EnvironmentConfig:
         cos_secret_key=os.getenv('COS_SECRET_KEY'),
         cos_region=os.getenv('COS_REGION'),
         cos_bucket=os.getenv('COS_BUCKET'),
-        cos_domain=os.getenv('COS_DOMAIN')
+        cos_domain=os.getenv('COS_DOMAIN'),
+        
+        # 向量模型配置
+        embedding_api_key=os.getenv('EMBEDDING_API_KEY'),
+        embedding_base_url=os.getenv('EMBEDDING_BASE_URL'),
+        embedding_model_name=os.getenv('EMBEDDING_MODEL_NAME')
     )
     
     # 设置日志级别
@@ -264,6 +274,21 @@ def load_cos_config() -> Dict[str, str]:
         'region': config.cos_region,
         'bucket': config.cos_bucket,
         'domain': config.cos_domain
+    }
+
+
+def load_embedding_config() -> Dict[str, Optional[str]]:
+    """加载向量模型配置
+    
+    Returns:
+        Dict[str, Optional[str]]: 包含向量模型配置的字典
+    """
+    config = load_environment()
+    
+    return {
+        'api_key': config.embedding_api_key,
+        'base_url': config.embedding_base_url,
+        'model_name': config.embedding_model_name
     }
 
 
