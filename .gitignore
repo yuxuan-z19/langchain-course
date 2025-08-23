@@ -3,3 +3,16 @@
 .env.test
 
 langchain_env/
+
+# ChromaDB数据库文件夹
+chroma*/
+*chroma*/
+
+# 教程生成的数据库文件夹
+tutorials/*_db/
+tutorials/*/demo_*_db/
+tutorials/*/*_db/
+
+# 日志文件
+*.log
+tutorials/**/*.log
