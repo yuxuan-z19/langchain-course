@@ -12,8 +12,8 @@ ChromaDB向量数据库演示
 6. 批量操作和性能测试
 7. 数据持久化和恢复
 
-作者：LangChain教程
-日期：2024年1月
+作者：jaguarliu
+日期：2025年8月
 """
 
 import os

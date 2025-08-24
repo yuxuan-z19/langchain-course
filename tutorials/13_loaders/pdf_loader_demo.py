@@ -6,8 +6,8 @@ PDF文档加载器演示
 本演示展示如何使用LangChain的文档加载器来处理PDF文件，
 包括文档加载、文本提取、分块处理等核心功能。
 
-作者: LangChain课程
-日期: 2024
+作者: Jaguarliu
+日期: 2025年8月
 """
 
 import os
