@@ -1,0 +1,19 @@
+报告标题: {{ report_title }}
+作者: {{ author }}
+生成时间: {{ current_time }}
+
+{% if include_summary %}
+## 摘要
+以下是关键数据点：
+{% for point in data_points %}
+- {{ point.name }}: {{ point.value }}{% if point.trend %} (趋势: {{ point.trend }}){% endif %}
+{% endfor %}
+{% endif %}
+
+## 详细分析
+{% for point in data_points if point.type == '销售' %}
+- 销售数据点 '{{ point.name }}' 的值为 {{ point.value }}。
+{% endfor %}
+{% for point in data_points if point.type == '质量' %}
+- 质量指标 '{{ point.name }}' 的值为 {{ point.value }}。
+{% endfor %}
