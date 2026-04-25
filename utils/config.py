@@ -17,7 +17,8 @@ logger = logging.getLogger(__name__)
 @dataclass
 class EnvironmentConfig:
     """环境配置数据模型"""
-    openai_api_key: str
+    deepseek_api_key: str
+    deepseek_base_url: str = "https://api.deepseek.com"
     langchain_api_key: Optional[str] = None
     langchain_tracing: bool = False
     langchain_project: str = "langchain-tutorial"
@@ -29,12 +30,26 @@ class EnvironmentConfig:
     anthropic_api_key: Optional[str] = None
     google_api_key: Optional[str] = None
     huggingface_api_token: Optional[str] = None
+    qwen_api_key: Optional[str] = None
+    qwen_base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     
     # 数据库配置
     database_url: Optional[str] = None
     chroma_persist_directory: Optional[str] = None
     pinecone_api_key: Optional[str] = None
     pinecone_environment: Optional[str] = None
+    
+    # 腾讯云COS配置
+    cos_secret_id: Optional[str] = None
+    cos_secret_key: Optional[str] = None
+    cos_region: Optional[str] = None
+    cos_bucket: Optional[str] = None
+    cos_domain: Optional[str] = None
+    
+    # 向量模型配置
+    embedding_api_key: Optional[str] = None
+    embedding_base_url: Optional[str] = None
+    embedding_model_name: Optional[str] = None
 
 
 @dataclass
@@ -64,7 +79,7 @@ def load_environment() -> EnvironmentConfig:
     
     # 必需的环境变量
     required_vars = [
-        'OPENAI_API_KEY'
+        'DEEPSEEK_API_KEY'
     ]
     
     # 检查必需的环境变量
@@ -81,7 +96,8 @@ def load_environment() -> EnvironmentConfig:
     
     # 创建配置对象
     config = EnvironmentConfig(
-        openai_api_key=os.getenv('OPENAI_API_KEY'),
+        deepseek_api_key=os.getenv('DEEPSEEK_API_KEY'),
+        deepseek_base_url=os.getenv('DEEPSEEK_BASE_URL', 'https://api.deepseek.com'),
         langchain_api_key=os.getenv('LANGCHAIN_API_KEY'),
         langchain_tracing=os.getenv('LANGCHAIN_TRACING_V2', 'false').lower() == 'true',
         langchain_project=os.getenv('LANGCHAIN_PROJECT', 'langchain-tutorial'),
@@ -93,12 +109,26 @@ def load_environment() -> EnvironmentConfig:
         anthropic_api_key=os.getenv('ANTHROPIC_API_KEY'),
         google_api_key=os.getenv('GOOGLE_API_KEY'),
         huggingface_api_token=os.getenv('HUGGINGFACE_API_TOKEN'),
+        qwen_api_key=os.getenv('QWEN_API_KEY'),
+        qwen_base_url=os.getenv('QWEN_BASE_URL', 'https://dashscope.aliyuncs.com/compatible-mode/v1'),
         
         # 数据库配置
         database_url=os.getenv('DATABASE_URL'),
         chroma_persist_directory=os.getenv('CHROMA_PERSIST_DIRECTORY'),
         pinecone_api_key=os.getenv('PINECONE_API_KEY'),
-        pinecone_environment=os.getenv('PINECONE_ENVIRONMENT')
+        pinecone_environment=os.getenv('PINECONE_ENVIRONMENT'),
+        
+        # 腾讯云COS配置
+        cos_secret_id=os.getenv('COS_SECRET_ID'),
+        cos_secret_key=os.getenv('COS_SECRET_KEY'),
+        cos_region=os.getenv('COS_REGION'),
+        cos_bucket=os.getenv('COS_BUCKET'),
+        cos_domain=os.getenv('COS_DOMAIN'),
+        
+        # 向量模型配置
+        embedding_api_key=os.getenv('EMBEDDING_API_KEY'),
+        embedding_base_url=os.getenv('EMBEDDING_BASE_URL'),
+        embedding_model_name=os.getenv('EMBEDDING_MODEL_NAME')
     )
     
     # 设置日志级别
@@ -119,7 +149,8 @@ def get_config_dict() -> Dict[str, Any]:
     """
     config = load_environment()
     return {
-        'openai_api_key': config.openai_api_key,
+        'deepseek_api_key': config.deepseek_api_key,
+        'deepseek_base_url': config.deepseek_base_url,
         'langchain_api_key': config.langchain_api_key,
         'langchain_tracing': config.langchain_tracing,
         'langchain_project': config.langchain_project,
@@ -137,11 +168,11 @@ def validate_api_keys() -> Dict[str, bool]:
     config = load_environment()
     validation_results = {}
     
-    # 验证OpenAI API密钥
-    if config.openai_api_key:
-        validation_results['openai'] = config.openai_api_key.startswith('sk-')
+    # 验证DeepSeek API密钥
+    if config.deepseek_api_key:
+        validation_results['deepseek'] = len(config.deepseek_api_key) > 10
     else:
-        validation_results['openai'] = False
+        validation_results['deepseek'] = False
     
     # 验证LangChain API密钥
     if config.langchain_api_key:
@@ -153,6 +184,7 @@ def validate_api_keys() -> Dict[str, bool]:
     validation_results['anthropic'] = bool(config.anthropic_api_key)
     validation_results['google'] = bool(config.google_api_key)
     validation_results['huggingface'] = bool(config.huggingface_api_token)
+    validation_results['qwen'] = bool(config.qwen_api_key)
     
     return validation_results
 
@@ -161,8 +193,9 @@ def setup_environment_variables():
     """设置环境变量到系统环境中"""
     config = load_environment()
     
-    # 设置OpenAI API密钥
-    os.environ['OPENAI_API_KEY'] = config.openai_api_key
+    # 设置DeepSeek API密钥
+    os.environ['DEEPSEEK_API_KEY'] = config.deepseek_api_key
+    os.environ['DEEPSEEK_BASE_URL'] = config.deepseek_base_url
     
     # 设置LangChain相关环境变量
     if config.langchain_api_key:
@@ -174,6 +207,89 @@ def setup_environment_variables():
         os.environ['LANGCHAIN_ENDPOINT'] = config.langchain_endpoint
     
     logger.info("Environment variables set successfully")
+
+
+def load_deepseek_config() -> Dict[str, str]:
+    """加载DeepSeek API配置
+    
+    Returns:
+        Dict[str, str]: 包含api_key和base_url的配置字典
+        
+    Raises:
+        ValueError: 当DeepSeek API密钥缺失时
+    """
+    config = load_environment()
+    return {
+        'api_key': config.deepseek_api_key,
+        'base_url': config.deepseek_base_url
+    }
+
+
+def load_qwen_config() -> Dict[str, str]:
+    """加载Qwen API配置
+    
+    Returns:
+        Dict[str, str]: 包含api_key和base_url的配置字典
+        
+    Raises:
+        ValueError: 当Qwen API密钥缺失时
+    """
+    config = load_environment()
+    if not config.qwen_api_key:
+        raise ValueError("QWEN_API_KEY is required but not found in environment variables")
+    return {
+        'api_key': config.qwen_api_key,
+        'base_url': config.qwen_base_url
+    }
+
+
+def load_cos_config() -> Dict[str, str]:
+    """加载腾讯云COS配置
+    
+    Returns:
+        Dict[str, str]: 包含COS配置的字典
+        
+    Raises:
+        ValueError: 当必需的COS配置缺失时
+    """
+    config = load_environment()
+    
+    # 检查必需的COS配置
+    required_cos_vars = ['cos_secret_id', 'cos_secret_key', 'cos_region', 'cos_bucket']
+    missing_vars = []
+    
+    for var in required_cos_vars:
+        if not getattr(config, var):
+            missing_vars.append(var.upper())
+    
+    if missing_vars:
+        raise ValueError(
+            f"Missing required COS environment variables: {', '.join(missing_vars)}\n"
+            f"Please add these variables to your .env file."
+        )
+    
+    return {
+        'secret_id': config.cos_secret_id,
+        'secret_key': config.cos_secret_key,
+        'region': config.cos_region,
+        'bucket': config.cos_bucket,
+        'domain': config.cos_domain
+    }
+
+
+def load_embedding_config() -> Dict[str, Optional[str]]:
+    """加载向量模型配置
+    
+    Returns:
+        Dict[str, Optional[str]]: 包含向量模型配置的字典
+    """
+    config = load_environment()
+    
+    return {
+        'api_key': config.embedding_api_key,
+        'base_url': config.embedding_base_url,
+        'model_name': config.embedding_model_name
+    }
 
 
 if __name__ == "__main__":

@@ -1,0 +1,102 @@
+{#
+模板名称: 数据分析报告生成器
+描述: 根据数据生成详细的分析报告
+
+必需变量:
+- report_title: 报告标题 (string)
+- data_points: 数据点列表 (list)
+- analysis_type: 分析类型 (string)
+
+可选变量:
+- include_summary: 是否包含摘要 (boolean, 默认: true)
+- language: 报告语言 (string, 默认: 'zh')
+- author: 报告作者 (string)
+#}
+
+# {{ report_title }}
+
+{% if author %}
+**报告作者**: {{ author }}
+{% endif %}
+
+**分析类型**: {{ analysis_type }}
+**生成时间**: {{ current_time | default('未指定') }}
+
+---
+
+{% if include_summary | default(true) %}
+## 执行摘要
+
+本报告对 {{ data_points | length }} 个数据点进行了 {{ analysis_type }} 分析。
+{% if data_points | length > 10 %}
+数据量较大，建议重点关注关键指标。
+{% elif data_points | length > 5 %}
+数据量适中，可以进行详细分析。
+{% else %}
+数据量较小，建议收集更多数据以提高分析准确性。
+{% endif %}
+
+{% endif %}
+
+## 数据分析
+
+### 数据概览
+
+{% for item in data_points %}
+**{{ loop.index }}. {{ item.name | default('数据点 ' + loop.index | string) }}**
+- 数值: {{ item.value }}
+- 类型: {{ item.type | default('未分类') }}
+{% if item.description %}
+- 描述: {{ item.description }}
+{% endif %}
+{% if item.trend %}
+- 趋势: {{ item.trend | upper }}
+{% endif %}
+
+{% endfor %}
+
+### 关键发现
+
+{% set high_values = data_points | selectattr('value', 'gt', 100) | list %}
+{% set low_values = data_points | selectattr('value', 'lt', 50) | list %}
+
+{% if high_values %}
+**高值数据点** (值 > 100):
+{% for item in high_values %}
+- {{ item.name }}: {{ item.value }}
+{% endfor %}
+{% endif %}
+
+{% if low_values %}
+**低值数据点** (值 < 50):
+{% for item in low_values %}
+- {{ item.name }}: {{ item.value }}
+{% endfor %}
+{% endif %}
+
+### 统计摘要
+
+- 总数据点: {{ data_points | length }}
+- 平均值: {{ (data_points | map(attribute='value') | sum) / (data_points | length) | round(2) }}
+- 最大值: {{ data_points | map(attribute='value') | max }}
+- 最小值: {{ data_points | map(attribute='value') | min }}
+
+## 建议和结论
+
+{% if analysis_type == 'performance' %}
+基于性能分析结果，建议：
+1. 关注高性能指标的维持
+2. 改进低性能区域
+3. 建立持续监控机制
+{% elif analysis_type == 'trend' %}
+基于趋势分析结果，建议：
+1. 跟踪上升趋势的驱动因素
+2. 分析下降趋势的根本原因
+3. 制定相应的应对策略
+{% else %}
+基于{{ analysis_type }}分析结果，建议进一步深入研究关键数据点。
+{% endif %}
+
+---
+
+*本报告由 LangChain 提示词模板自动生成*
