@@ -5,11 +5,12 @@ langchain>=0.1.0
 langchain-openai>=0.1.0
 langchain-community>=0.1.0
 langchain-experimental
+langchain-tavily
 langgraph>=0.0.40
+langgraph-checkpoint-sqlite
 python-dotenv>=1.0.0
 openai>=1.0.0
-ipykernel
-ipywidgets
+protobuf<3.21.0
 
 # 开发依赖
 jupyter>=1.0.0
@@ -17,6 +18,7 @@ ipykernel>=6.0.0
 pytest>=7.0.0
 black>=23.0.0
 flake8>=6.0.0
+ipywidgets
 
 # 可选依赖 - Web界面
 streamlit>=1.28.0
@@ -51,6 +53,9 @@ faiss-cpu>=1.7.0
 redis>=5.0.0
 hiredis>=2.2.0  # Redis的高性能解析器
 redislite
+
+# 可选依赖 - 智能体记忆
+mem0ai
 
 # 可选依赖 - 其他工具
 requests>=2.31.0
